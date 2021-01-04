@@ -11,6 +11,7 @@
     <modules>
         <module>SpringbootApp</module>
         <module>ChatDemo</module>
+        <module>SpringStudy</module>
     </modules>
 
 
