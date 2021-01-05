@@ -13,5 +13,8 @@ public class Cap2Test {
 		for(String name:names){
 			System.out.println(name);
 		}
+
+		app.close();
 	}
+
 }
