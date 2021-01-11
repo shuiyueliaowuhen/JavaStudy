@@ -12,6 +12,7 @@
         <module>SpringbootApp</module>
         <module>ChatDemo</module>
         <module>SpringStudy</module>
+        <module>MyBatisStudy</module>
     </modules>
 
 
