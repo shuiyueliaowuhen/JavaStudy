@@ -13,6 +13,7 @@
         <module>ChatDemo</module>
         <module>SpringStudy</module>
         <module>MyBatisStudy</module>
+        <module>SpringMvc</module>
     </modules>
 
 
