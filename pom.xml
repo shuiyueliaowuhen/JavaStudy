@@ -15,6 +15,7 @@
         <module>MyBatisStudy</module>
         <module>SpringMvc</module>
         <module>SfSpringMvc</module>
+        <module>mybatis-3</module>
     </modules>
 
 
