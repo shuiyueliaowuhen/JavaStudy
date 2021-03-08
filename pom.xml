@@ -16,6 +16,7 @@
         <module>SpringMvc</module>
         <module>SfSpringMvc</module>
         <module>mybatis-3</module>
+        <module>SimpleDemo</module>
     </modules>
 
 
