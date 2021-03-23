@@ -17,6 +17,7 @@
         <module>SfSpringMvc</module>
         <module>mybatis-3</module>
         <module>SimpleDemo</module>
+        <module>JucDemo</module>
     </modules>
 
 
