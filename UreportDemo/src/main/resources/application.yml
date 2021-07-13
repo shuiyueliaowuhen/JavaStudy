@@ -1,0 +1,77 @@
+server:
+  port: 18001
+#server.servlet.context-path=/smartarch
+
+logging:
+  level:
+    io:
+      seata: info
+    root: debug
+  config: classpath:logback-spring.xml
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${EUREKA_HOST:127.0.0.1}:${EUREKA_PORT:8761}/eureka/
+  instance:
+    instance-id: user-service
+    prefer-ip-address: true
+
+spring:
+  application:
+    name: user-service
+  messages:
+    basename: i18n/messages
+  datasource:
+    url: jdbc:postgresql://${PG_HOST:10.23.21.27}:${PG_PORT:5432}/${DB_NAME:postgres}
+    username: ${PG_USER:postgres}
+    password: ${PG_PASSWORD:smartarch}
+    driverClassName: org.postgresql.Driver
+    druid:
+      initialSize: 10
+      maxActive: 20
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      testWhileIdle: true
+      testOnBorrow: true
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+      validationQuery: SELECT 1
+      validation-query-timeout: 500
+      filters: stat
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        reset-enable: true
+        login-username: admin
+        login-password: admin
+  elasticsearch:
+    rest:
+      uris:
+      - http://${ES_HOST:10.23.21.27}:${ES_PORT:9200}
+      username: ${ES_USER:elastic}
+      password: ${ES_PASSWORD:smartarch}
+  jackson:
+    time-zone: GMT+8
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: my_project_tx_group
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+
+swagger:
+  title: 权限管理接口
+  version: v1
+  license: Apache License, Version 2.0
+  licenseUrl: https://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfServiceUrl: https://github.com/dyc87112/spring-boot-starter-swagger
+  contact.name: crisschen
+  contact.email: chenzheng6809@163.com
+  base-package: com.smartarch
+  base-path: /**
