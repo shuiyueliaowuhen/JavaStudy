@@ -17,6 +17,9 @@
         <module>mybatis-3</module>
         <module>SimpleDemo</module>
         <module>JucDemo</module>
+        <module>Demo</module>
+        <module>UreportDemo</module>
+        <module>ServerForUniApp</module>
     </modules>
 
 

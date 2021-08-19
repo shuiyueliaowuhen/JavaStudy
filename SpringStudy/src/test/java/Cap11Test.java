@@ -1,6 +1,6 @@
 
-import com.sf.cap11.config.Cap11MainConfig;
-import com.sf.cap11.service.OrderService;
+import com.uni.cap11.config.Cap11MainConfig;
+import com.uni.cap11.service.OrderService;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

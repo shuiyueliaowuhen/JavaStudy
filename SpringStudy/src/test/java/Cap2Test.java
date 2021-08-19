@@ -1,4 +1,4 @@
-import com.sf.cap2.config.Cap2MainConfig;
+import com.uni.cap2.config.Cap2MainConfig;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

@@ -1,0 +1,86 @@
+
+
+import com.smartarch.common.model.req.DelReq;
+import com.smartarch.common.model.req.@value2@AddReq;
+import com.smartarch.common.model.req.@value2@DelReq;
+import com.smartarch.common.model.req.@value2@UpdateReq;
+import com.smartarch.common.model.vo.@value2@Vo;
+import com.smartarch.common.service.@value2@Service;
+import com.smartarch.platform.api.IConst;
+import com.smartarch.platform.api.IUtil;
+import com.smartarch.platform.locale.LocaleMessage;
+import com.smartarch.platform.log.bean.LogMessage;
+import com.smartarch.platform.log.service.LogService;
+import com.smartarch.platform.model.ResponseData;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import com.smartarch.platform.log.annotation.ApiLog;
+
+import javax.annotation.Resource;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
+
+
+
+
+@Slf4j
+@Api(tags = "@value3@管理接口")
+@RestController
+@RequestMapping("/@value1@")
+public class @value2@Controller {
+
+
+    @Autowired(required = false)
+    private @value2@Service @value1@Service;
+
+    @ApiLog
+    @ApiOperation(value = "增加@value3@")
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("/add")
+    public void add@value2@( @RequestBody @value2@AddReq @value1@AddReq) {
+
+        @value1@Service.add@value2@(@value1@AddReq);
+
+    }
+
+    @ApiLog
+    @ApiOperation(value = "更新@value3@")
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("/update")
+    public void update@value2@( @RequestBody @value2@UpdateReq @value1@UpdateReq) {
+
+        @value1@Service.update@value2@(@value1@UpdateReq);
+
+    }
+
+    @ApiLog
+    @ApiOperation(value = "删除@value3@")
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("/del")
+    public void del@value2@( @RequestBody DelReq delReq) {
+
+        @value1@Service.del@value2@(delReq);
+
+    }
+
+    @ApiOperation(value = "查询@value3@列表")
+    @GetMapping("/query/{id}")
+    public ResponseData<@value2@Vo> query(@PathVariable("id") String id) {
+        return IUtil.getResponseData( @value1@Service.query(id) ) ;
+    }
+
+
+    @ApiOperation(value = "查询@value3@列表")
+    @GetMapping("/list")
+    public ResponseData<DataVo<@value2@Vo>> selectPage(PageReq req) {
+        return IUtil.getResponseData( @value1@Service.selectPage(req) ) ;
+    }
+
+
+
+}

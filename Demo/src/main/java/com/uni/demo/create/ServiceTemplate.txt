@@ -1,0 +1,103 @@
+
+
+
+import com.smartarch.common.model.req.DelReq;
+import com.smartarch.platform.api.IConst;
+import com.smartarch.platform.exception.ServiceException;
+import com.smartarch.platform.locale.LocaleMessage;
+import com.smartarch.platform.model.Module;
+import com.smartarch.platform.util.ObjectValidUtil;
+import com.smartarch.platform.util.ServiceUtils;
+import com.smartarch.platform.util.bean.BeanUtils;
+import com.smartarch.platform.validate.ValidationHandler;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import com.smartarch.platform.model.vo.DataVo;
+
+import javax.annotation.Resource;
+import java.util.List;
+import java.util.UUID;
+import java.util.stream.Collectors;
+
+@Slf4j
+@Service
+public class @value2@Service {
+
+    @Autowired(required = false)
+    private @value2@Mapper @value1@Mapper;
+
+    @Autowired
+    private ValidationHandler validationHandler;
+
+    @Resource
+    private LocaleMessage localeMessage;
+
+    @Transactional
+    public void add@value2@(@value2@AddReq @value1@AddReq){
+
+        validationHandler.validate(@value1@AddReq);
+
+        @value2@ @value1@ = BeanUtils.copyBean(@value1@AddReq, @value2@.class);
+        @value1@.setId(UUID.randomUUID().toString());
+        @value1@.setCreateAt(new Timestamp(System.currentTimeMillis()));
+        @value1@.setCreateBy(RequestUtils.getHeader(IConst.USER_UUID));
+        @value1@Mapper.insert(@value1@);
+
+    }
+
+    @Transactional
+    public void update@value2@(@value2@UpdateReq @value1@UpdateReq){
+
+        validationHandler.validate(@value1@UpdateReq);
+
+        @value2@ qry@value2@ = @value1@Mapper.selectByPrimaryKey(@value1@UpdateReq.getId());
+        if(null == qry@value2@){
+            throw new ServiceException(HttpStatus.BAD_REQUEST,"@value3@不存在");
+        }
+
+
+        BeanUtils.copyBeanProp(qry@value2@,@value1@UpdateReq);
+        @value1@.setUpdateAt(new Timestamp(System.currentTimeMillis()));
+        @value1@.setUpdateBy(RequestUtils.getHeader(IConst.USER_UUID));
+        @value1@Mapper.updateByPrimaryKey(qry@value2@);
+
+    }
+
+    @Transactional
+    public void del@value2@(DelReq delReq){
+
+        validationHandler.validate(delReq);
+
+        @value1@Mapper.deleteByPrimaryKey(delReq.getId());
+
+    }
+
+    public @value2@Vo query(String id){
+
+        @value2@ qry@value2@ = @value1@Mapper.selectByPrimaryKey(id);
+
+        if(null == qry@value2@){
+            throw new ServiceException(HttpStatus.BAD_REQUEST,"@value3@)不存在");
+        }
+
+        return BeanUtils.copyBean(qry@value2@,@value2@Vo.class);
+
+    }
+
+    public DataVo<@value2@Vo> selectPage(PageReq req){
+
+        PageHelper.startPage(req.getPageNum(), req.getPageSize());
+        Example example = PageUtil.exampleAndCreateDesc(new @value2@());
+        List<@value2@> @value1@List = @value1@Mapper.selectByExample(example);
+        List<@value2@Vo> @value1@VoList =
+                @value1@List.stream().map(e -> BeanUtils.copyBean(e, @value2@Vo.class)).collect(Collectors.toList());
+
+        return new DataVo<>( @value1@VoList,@value1@List );
+
+    }
+
+
+}

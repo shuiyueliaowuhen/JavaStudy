@@ -1,5 +1,5 @@
-import com.sf.cap10.aop.Calculator;
-import com.sf.cap10.config.Cap10MainConfig;
+import com.uni.cap10.aop.Calculator;
+import com.uni.cap10.config.Cap10MainConfig;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

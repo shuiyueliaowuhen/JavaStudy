@@ -2,7 +2,7 @@
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.sf.cap12.Cap12MainConfig;
+import com.uni.cap12.Cap12MainConfig;
 public class Cap12Test {
 	@Test
 	public void test01(){
