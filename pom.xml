@@ -20,6 +20,7 @@
         <module>Demo</module>
         <module>UreportDemo</module>
         <module>ServerForUniApp</module>
+        <module>NettyPro</module>
     </modules>
 
 
