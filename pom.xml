@@ -21,6 +21,7 @@
         <module>UreportDemo</module>
         <module>ServerForUniApp</module>
         <module>NettyPro</module>
+        <module>GuiDemo</module>
     </modules>
 
 
