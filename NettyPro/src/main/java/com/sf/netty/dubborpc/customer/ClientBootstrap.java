@@ -1,6 +1,6 @@
 package com.sf.netty.dubborpc.customer;
 
-import com.atguigu.netty.dubborpc.netty.NettyClient;
+import com.sf.netty.dubborpc.netty.NettyClient;
 import com.sf.netty.dubborpc.publicinterface.HelloService;
 
 public class ClientBootstrap {
