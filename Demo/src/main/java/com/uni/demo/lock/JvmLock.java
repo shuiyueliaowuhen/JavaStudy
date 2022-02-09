@@ -62,7 +62,7 @@ public class JvmLock {
         }while (lockCache == null || lockCache != lock);
 
         //这个写法有问题，简单来说就是 取锁和解锁不在 一个原子操作中，有可能有个线程拿到数据了，但是正好被前面的删了
-        //java.lang.IllegalMonitorStateException 解锁的时候会抛，大意是当前线程和所有的线程不是一个线程
+        //java.lang.IllegalMonitorStateException 解锁的时候会抛，大意是当前线程和持有锁的线程不是同一个
 //        ReentrantLock lock = muteKey.computeIfAbsent(oderId, k -> new ReentrantLock());
 
         try {
