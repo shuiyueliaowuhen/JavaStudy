@@ -22,7 +22,7 @@ public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObjec
     protected void channelRead0(ChannelHandlerContext ctx, HttpObject msg) throws Exception {
 
 
-        System.out.println("对应的channel=" + ctx.channel() + " pipeline=" + ctx
+        System.out.println(" 对应的channel=" + ctx.channel() + " pipeline=" + ctx
         .pipeline() + " 通过pipeline获取channel" + ctx.pipeline().channel());
 
         System.out.println("当前ctx的handler=" + ctx.handler());
@@ -32,7 +32,7 @@ public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObjec
 
             System.out.println("ctx 类型="+ctx.getClass());
 
-            System.out.println("pipeline hashcode" + ctx.pipeline().hashCode() + " TestHttpServerHandler hash=" + this.hashCode());
+            System.out.println("Thread name:"+Thread.currentThread().getName()+" pipeline hashcode" + ctx.pipeline().hashCode() + " TestHttpServerHandler hash=" + this.hashCode());
 
             System.out.println("msg 类型=" + msg.getClass());
             System.out.println("客户端地址" + ctx.channel().remoteAddress());
@@ -52,7 +52,7 @@ public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObjec
             //构造一个http的相应，即 httpresponse
             FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK, content);
 
-            response.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/plain");
+            response.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/plain;charset=UTF-8");
             response.headers().set(HttpHeaderNames.CONTENT_LENGTH, content.readableBytes());
 
             //将构建好 response返回

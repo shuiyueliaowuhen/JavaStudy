@@ -22,6 +22,7 @@
         <module>ServerForUniApp</module>
         <module>NettyPro</module>
         <module>GuiDemo</module>
+        <module>FileTypeChange</module>
     </modules>
 
 

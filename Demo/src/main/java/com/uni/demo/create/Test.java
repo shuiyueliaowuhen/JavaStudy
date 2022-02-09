@@ -9,15 +9,15 @@ import java.util.List;
 public class Test {
 
     public static void main(String[] args)throws Exception {
-        List<String> list = readFile0( "/Users/songfei/code/JavaStudy/Demo/src/main/java/com/uni/demo/create/ControllerTemplate.txt");
-//        List<String> list = readFile0( "/Users/songfei/code/JavaStudy/Demo/src/main/java/com/uni/demo/create/ServiceTemplate.txt");
+//        List<String> list = readFile0( "/Users/songfei/code/JavaStudy/Demo/src/main/java/com/uni/demo/create/ControllerTemplate.txt");
+        List<String> list = readFile0( "/Users/songfei/code/JavaStudy/Demo/src/main/java/com/uni/demo/create/ServiceTemplate.txt");
 
 
 
         list.forEach(str -> {
-            str = str.replaceAll("@value1@","subpackageCost");
-            str = str.replaceAll("@value2@","SubpackageCost");
-            str = str.replaceAll("@value3@","账面分包成本明细");
+            str = str.replaceAll("@value1@","fileLibrary");
+            str = str.replaceAll("@value2@","FileLibrary");
+            str = str.replaceAll("@value3@","文库");
             System.out.println(str);
         });
     }

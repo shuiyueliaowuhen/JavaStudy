@@ -11,11 +11,19 @@ public class SortTest {
         List<Persion> list = new ArrayList<>();
         Persion persion1 = new Persion("1");
         Persion persion2 = new Persion("2");
-        list.add(persion2);
+//        list.add(persion2);
         list.add(persion1);
-        list = null;
+        list.add(persion2);
+//        list = null;
 
-        Map<String, Persion> collect = list.stream().collect(Collectors.toMap(Persion::getId, t -> t));
+//        Map<String, Persion> collect = list.stream().collect(Collectors.toMap(Persion::getId, t -> t));
+
+
+
+
+
+
+
 
 
 //        System.out.println(list);
