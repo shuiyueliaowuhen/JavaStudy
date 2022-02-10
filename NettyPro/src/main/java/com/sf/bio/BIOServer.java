@@ -24,9 +24,7 @@ public class BIOServer {
             System.out.println("连接到一个客户端");
 
             //创建一个线程，与客户端通讯
-            threadPool.execute(()->{
-                handler(socket);
-            });
+            threadPool.execute( () -> handler(socket) );
 
 
         }

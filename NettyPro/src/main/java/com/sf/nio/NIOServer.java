@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 public class NIOServer {
+
     public static void main(String[] args) throws Exception{
 
         //创建ServerSocketChannel -> ServerSocket
@@ -17,6 +18,7 @@ public class NIOServer {
 
         //绑定一个端口6666, 在服务器端监听
         serverSocketChannel.socket().bind(new InetSocketAddress(6666));
+
         //设置为非阻塞
         serverSocketChannel.configureBlocking(false);
 
@@ -24,7 +26,6 @@ public class NIOServer {
         serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
 
         System.out.println("注册后的selectionkey 数量=" + selector.keys().size()); // 1
-
 
 
         //循环等待客户端连接

@@ -46,6 +46,14 @@ public class JvmLock {
     private Map<String,ReentrantLock> muteKey = new ConcurrentHashMap<>();
 
     public void createOrder4(String oderId){
+
+        /**
+         * 可以
+         *
+         * 如果前面没拦请求。会生成很多的锁，如果可以控制一下动态扩容大小就更好了
+         *
+         */
+
         ReentrantLock lock = null,lockCache;
 
         do{
@@ -69,6 +77,7 @@ public class JvmLock {
             BusinessService.doService();
         } finally {
             if(lock.getQueueLength() == 0){
+                //如果不清理，会越来越大
                 muteKey.remove(oderId);
             }
 
@@ -88,6 +97,7 @@ public class JvmLock {
             } ).start();
         }
 
+        //模拟tomcat 线程池满了，等待后处理新请求
         Thread.sleep(5 * 10);
 
         for (int i = 0; i < 1000; i++) {
