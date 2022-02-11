@@ -16,6 +16,7 @@ import java.util.concurrent.TimeUnit;
 
 public class MyServer {
     public static void main(String[] args) throws Exception{
+        //客户端使用groupchat的
 
 
         //创建两个线程组
@@ -47,14 +48,14 @@ public class MyServer {
  *                  6. 当 IdleStateEvent 触发后 , 就会传递给管道 的下一个handler去处理
  *                  通过调用(触发)下一个handler 的 userEventTiggered , 在该方法中去处理 IdleStateEvent(读空闲，写空闲，读写空闲)
                      */
-                    pipeline.addLast(new IdleStateHandler(7000,7000,10, TimeUnit.SECONDS));
+                    pipeline.addLast(new IdleStateHandler(3,7000,10, TimeUnit.SECONDS));
                     //加入一个对空闲检测进一步处理的handler(自定义)
                     pipeline.addLast(new MyServerHandler());
                 }
             });
 
             //启动服务器
-            ChannelFuture channelFuture = serverBootstrap.bind(7000).sync();
+            ChannelFuture channelFuture = serverBootstrap.bind(6668).sync();
             channelFuture.channel().closeFuture().sync();
 
         }finally {

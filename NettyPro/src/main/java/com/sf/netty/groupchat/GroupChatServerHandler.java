@@ -31,16 +31,13 @@ public class GroupChatServerHandler extends SimpleChannelInboundHandler<String> 
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
         Channel channel = ctx.channel();
-        //将该客户加入聊天的信息推送给其它在线的客户端
+        //将该用户加入聊天的信息推送给其它在线的客户端
         /*
         该方法会将 channelGroup 中所有的channel 遍历，并发送 消息，
         我们不需要自己遍历
          */
         channelGroup.writeAndFlush("[客户端]" + channel.remoteAddress() + " 加入聊天" + sdf.format(new java.util.Date()) + " \n");
         channelGroup.add(channel);
-
-
-
 
     }
 
