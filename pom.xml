@@ -23,6 +23,7 @@
         <module>NettyPro</module>
         <module>GuiDemo</module>
         <module>FileTypeChange</module>
+        <module>encrypt-decrypt</module>
     </modules>
 
 

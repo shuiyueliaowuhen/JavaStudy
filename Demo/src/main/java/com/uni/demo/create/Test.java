@@ -15,9 +15,9 @@ public class Test {
 
 
         list.forEach(str -> {
-            str = str.replaceAll("@value1@","fileLibrary");
-            str = str.replaceAll("@value2@","FileLibrary");
-            str = str.replaceAll("@value3@","文库");
+            str = str.replaceAll("@value1@","arcBorrowArchive");
+            str = str.replaceAll("@value2@","ArcBorrowArchive");
+            str = str.replaceAll("@value3@","档案");
             System.out.println(str);
         });
     }

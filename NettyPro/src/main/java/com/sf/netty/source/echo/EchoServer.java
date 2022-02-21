@@ -36,6 +36,7 @@ public final class EchoServer {
 
     public static void main(String[] args) throws Exception {
         // Configure SSL.
+        //配置ssl
         final SslContext sslCtx;
         if (SSL) {
             SelfSignedCertificate ssc = new SelfSignedCertificate();

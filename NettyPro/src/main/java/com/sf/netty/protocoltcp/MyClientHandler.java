@@ -6,6 +6,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 public class MyClientHandler extends SimpleChannelInboundHandler<MessageProtocol> {
 
@@ -16,8 +17,8 @@ public class MyClientHandler extends SimpleChannelInboundHandler<MessageProtocol
 
         for(int i = 0; i< 5; i++) {
             String mes = "今天天气冷，吃火锅";
-            byte[] content = mes.getBytes(Charset.forName("utf-8"));
-            int length = mes.getBytes(Charset.forName("utf-8")).length;
+            byte[] content = mes.getBytes(StandardCharsets.UTF_8);
+            int length = mes.getBytes(StandardCharsets.UTF_8).length;
 
             //创建协议包对象
             MessageProtocol messageProtocol = new MessageProtocol();
