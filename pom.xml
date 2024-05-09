@@ -24,6 +24,12 @@
         <module>GuiDemo</module>
         <module>FileTypeChange</module>
         <module>encrypt-decrypt</module>
+        <module>SyncDemo</module>
+        <module>SpringBootAdmin</module>
+        <module>InterfaceDemo</module>
+        <module>ClassDemo</module>
+        <module>EsDemo</module>
+        <module>PDFDemo</module>
     </modules>
 
 

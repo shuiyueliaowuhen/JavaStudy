@@ -18,8 +18,8 @@ public class CountdownLatchTest {
         /**
          * 模拟高并发情况代码
          */
-        final AtomicInteger atomicInteger = new AtomicInteger(0);
-        CountdownLatchTest countdownLatchTest = new CountdownLatchTest();
+        //final AtomicInteger atomicInteger = new AtomicInteger(0);
+        //CountdownLatchTest countdownLatchTest = new CountdownLatchTest();
 
         Predicate<Integer> isOuShu = (e) -> e%2 == 0;
 
