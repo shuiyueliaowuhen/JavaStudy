@@ -15,9 +15,9 @@ public class Test {
 
 
         list.forEach(str -> {
-            str = str.replaceAll("@value1@","project_settlement");
-            str = str.replaceAll("@value2@","DraftBox");
-            str = str.replaceAll("@value3@","草稿箱");
+            str = str.replaceAll("@value1@","prjPurchaseSettlementFee");
+            str = str.replaceAll("@value2@","PrjPurchaseSettlementFee");
+            str = str.replaceAll("@value3@","委外/采购合同-动态");
             System.out.println(str);
         });
     }

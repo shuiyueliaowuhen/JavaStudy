@@ -5,9 +5,6 @@ import com.linkcloud.common.model.ResponseData;
 import com.linkcloud.common.support.annotation.ApiGroup;
 import com.linkcloud.common.support.annotation.ApiLog;
 import com.linkcloud.common.utils.IUtil;
-import com.linkcloud.resource.model.@value2@.req.@value2@AddReq;
-import com.linkcloud.resource.model.@value2@.req.@value2@PageReq;
-import com.linkcloud.resource.model.@value2@.vo.@value2@tVo;
 import com.linkcloud.resource.service.@value2@Service;
 
 import io.swagger.annotations.Api;
@@ -48,8 +45,8 @@ public class @value2@Controller {
     @ApiOperation(value = "编辑@value3@")
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/update")
-    public void update( @RequestBody @Validated @value2@AddReq req) {
-        @value1@Service.add(req);
+    public void update( @RequestBody @Validated @value2@UpdateReq req) {
+        @value1@Service.update(req);
     }
 
 

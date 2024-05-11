@@ -5,10 +5,8 @@ import com.linkcloud.basic.service.*;
 import com.linkcloud.common.model.DataVo;
 import com.linkcloud.common.utils.*;
 import com.linkcloud.resource.api.RIConst;
+import com.linkcloud.common.exception.ServiceException;
 
-import com.linkcloud.resource.model.@value2@.req.@value2@AddReq;
-import com.linkcloud.resource.model.@value2@.req.@value2@PageReq;
-import com.linkcloud.resource.model.@value2@.vo.@value2@tVo;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,16 +24,14 @@ import java.util.List;
 @Slf4j
 @Service
 @RequiredArgsConstructor(onConstructor_ = {@Lazy})
-public class ProjectService{
+public class @value2@Service{
 
 
     private final @value2@Mapper @value1@Mapper;
 
     @Transactional
-    public void update(@value2@AddReq req){
+    public void update(@value2@UpdateReq req){
 
-        if(ObjectValidUtil.isBlank(req.getId()))
-            throw new ServiceException("id必传");
 
         @value2@ @value1@ = BeanUtils.copyBean(req, @value2@.class);
         CommonDaoUtil.update2(@value1@Mapper,@value1@);
@@ -43,7 +39,7 @@ public class ProjectService{
     }
 
     @Transactional
-    public void add(PrjProjectAddReq req){
+    public void add(@value2@AddReq req){
          @value2@ @value1@ = BeanUtils.copyBean(req, @value2@.class);
          CommonDaoUtil.insert2(@value1@Mapper,@value1@);
     }
@@ -54,10 +50,10 @@ public class ProjectService{
         CommonDaoUtil.del(@value1@Mapper,new @value2@(id));
     }
 
-    public PrjProjectVo detail(String id) {
+    public @value2@Vo detail(String id) {
 
         @value2@ @value1@ = @value1@Mapper.selectByPrimaryKey(id);
-        @value2@Vo vo = BeanUtils.copyBean(@value1@, @value2@.class);
+        @value2@Vo vo = BeanUtils.copyBean(@value1@, @value2@Vo.class);
         return vo;
 
 
@@ -68,7 +64,7 @@ public class ProjectService{
 
         PageHelper.startPage(req.getPageNum(), req.getPageSize());
 
-        Example example = PageUtil.exampleAndCreateDesc(BeanUtils.copyBean(req,@value2@.class), Collections.emptyList());
+        Example example = PageUtil.exampleAndCreateDesc(BeanUtils.copyBean(req,@value2@Vo.class), Collections.emptyList());
         List< @value2@> list =  CommonDaoUtil.list(@value1@Mapper,example);
         return new DataVo<>(list, @value2@Vo.class);
 
